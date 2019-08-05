@@ -1,19 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login, logout } from '../actions/authActions.js';
+import { startLogin, startLogout } from '../actions/authActions.js';
 import logo from '../logo.png';
+import './header.scss';
 
 const Header = (props) => {
+
+    // if user is logged in display "logout button" which lets you logout
+    // if user i logged out display "login button"
     const handleAuth = (uid) => {
-        if(uid) props.dispatch(logout())
-        else props.dispatch(login())
+        if(uid) props.dispatch(startLogout())
+        else props.dispatch(startLogin())
     }
 
     return (
-        <header>
-            <img src={logo} alt="Gifter Logo"/>
-            <button onClick={() => handleAuth(props.uid)}>{props.uid ? 'Logout' : 'Login'}</button>
-            <p>{props.uid}</p>
+        <header className="header">
+            <img className="header__logo" src={logo} alt="Gifter Logo"/>
+            <button className="header__button" onClick={() => handleAuth(props.uid)}>{props.uid ? 'Logout' : 'Login'}</button>
         </header>
     )
 };
