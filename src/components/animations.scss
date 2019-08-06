@@ -1,0 +1,70 @@
+// FADE IN/OUT AND SCALE
+.fade-enter,
+.fade-appear {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.fade-enter-active,
+.fade-appear-active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 400ms ease-out;
+}
+
+.fade-leave {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.fade-leave-active {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: all 400ms ease-out;
+}
+
+// SLIDE IN/OUT
+.slide-enter,
+.slide-appear {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+.slide-enter-active,
+.slide-appear-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 400ms ease-out;
+}
+
+.slide-leave {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-leave-active {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 400ms ease-out;
+}
+
+// ZOOM IN/OUT
+.zoom-enter,
+.zoom-appear {
+    transform: scaleX(0)
+}
+
+.zoom-enter-active,
+.zoom-appear-active {
+    transform: scaleX(1);
+    transition: transform 400ms ease-out;
+}
+
+.zoom-leave {
+    transform: scaleX(1);
+}
+
+.zoom-leave-active {
+    transform: scaleX(0);
+    transition: transform 400ms ease-out;
+}

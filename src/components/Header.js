@@ -1,23 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { startLogin, startLogout } from '../actions/authActions.js';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { startLogout } from '../actions/authActions.js';
 import logo from '../logo.png';
 import './header.scss';
+import './animations.scss';
+import './buttons.scss';
 
 const Header = (props) => {
-
-    // if user is logged in display "logout button" which lets you logout
-    // if user i logged out display "login button"
-    const handleAuth = (uid) => {
-        if(uid) props.dispatch(startLogout())
-        else props.dispatch(startLogin())
-    }
-
     return (
-        <header className="header">
-            <img className="header__logo" src={logo} alt="Gifter Logo"/>
-            <button className="header__button" onClick={() => handleAuth(props.uid)}>{props.uid ? 'Logout' : 'Login'}</button>
-        </header>
+        <ReactCSSTransitionGroup
+            transitionName="slide"
+            transitionEnterTimeout={400}        
+            transitionLeaveTimeout={400}        
+            transitionAppear={true}        
+            transitionAppearTimeout={400}        
+        >
+            <header className="header">
+                <img className="header__logo" src={logo} alt="Gifter Logo"/>
+                <button className="button" onClick={props.handleOpenAddPanel}>Dodaj prezent</button>
+                <button className="button button--inverted" onClick={props.dispatch(startLogout)}>Wyloguj</button>
+            </header>
+        </ReactCSSTransitionGroup>
     )
 };
 
