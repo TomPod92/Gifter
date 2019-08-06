@@ -16,4 +16,8 @@
             transform: scale(1.05) rotate(-3deg);
         }
     }
+
+    .button:first-of-type {
+        margin-right: 2rem;
+    }
 }
