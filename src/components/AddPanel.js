@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { startAddItem } from '../actions/listActions.js';
 import './addPanel.scss';
 import './animations.scss';
 import './buttons.scss';
 
 class AddPanel extends React.Component {
     state = {
-        person: '',
+        person: 'Tomek',
         name: '',
         image: '',
         price: '',
@@ -21,6 +22,31 @@ class AddPanel extends React.Component {
         })
     }
 
+    handleFormSubmit = (event) => {
+        // prevent autoreload
+        event.preventDefault();
+
+        // dispatch the action that adds item to firebase
+        // and then it dispatches the action that adds item to redux
+        this.props.dispatch(startAddItem(this.state));
+        
+        // clear form inputs and reset state
+        this.setState({
+            person: 'Tomek',
+            name: '',
+            image: '',
+            price: '',
+            links: '',
+            note: ''           
+        })
+
+        // close AddPanel and Overlay after a second
+        setTimeout(() => {
+            this.props.handleOpenAddPanel()
+        }, 1000);
+        
+    };
+
     render() {
         return (
             <ReactCSSTransitionGroup
@@ -30,10 +56,24 @@ class AddPanel extends React.Component {
                 transitionAppear={true}        
                 transitionAppearTimeout={400}        
             >
-                <form className="addPanel">
+                <form className="addPanel" onSubmit={this.handleFormSubmit}>
+                    <div className="addPanel__group">
+                        <label htmlFor="person">Prezent dla: </label>
+                        <select name="person" value={this.state.person} onChange={this.handleFormChange}>
+                            <option value="Tomek">Tomka</option>
+                            <option value="Wiola">Wioli</option>
+                            <option value="Dorota">Doroty</option>
+                            <option value="Darek">Darka</option>
+                            <option value="Przemek">Przemka</option>
+                            <option value="Ala">Ali</option>
+                            <option value="Iwona">Iwony</option>
+                            <option value="Zygmunt">Zygmunta</option>
+                        </select>
+                    </div>
+
                     <div className="addPanel__group">
                         <label htmlFor="name">Nazwa: </label>
-                        <input type="text" id="name" name="name" value={this.state.name} onChange={this.handleFormChange}/>
+                        <input type="text" id="name" name="name" value={this.state.name} onChange={this.handleFormChange} required/>
                     </div>
                     
                     <div className="addPanel__group">
@@ -48,7 +88,7 @@ class AddPanel extends React.Component {
 
                     <div className="addPanel__group">
                         <label htmlFor="links">Linki do sklepów: </label>
-                        <input type="textarea" id="links" name="links" value={this.state.links} onChange={this.handleFormChange}/>
+                        <input type="textarea" id="links" name="links" value={this.state.links} onChange={this.handleFormChange} required/>
                     </div>
 
                     <div className="addPanel__group">
@@ -63,8 +103,8 @@ class AddPanel extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
+// const mapStateToProps = (state) => {
 
-};
+// };
 
 export default connect()(AddPanel);

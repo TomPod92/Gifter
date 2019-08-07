@@ -17,9 +17,9 @@ class App extends React.Component {
   render() {
     return (
         <div className="App">
-          <Header handleOpenAddPanel={this.handleOpenAddPanel}/>
-          {this.state.addPanelOpen && <AddPanel />}
+          {this.state.addPanelOpen && <AddPanel handleOpenAddPanel={this.handleOpenAddPanel}/>}
           {this.state.addPanelOpen && <Overlay  handleOpenAddPanel={this.handleOpenAddPanel}/>}
+          <Header handleOpenAddPanel={this.handleOpenAddPanel}/>
         </div>
     );
   }
