@@ -1,18 +1,17 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import './animations.scss';
 import './overlay.scss';
 
 const Overlay = (props) => (
-    <ReactCSSTransitionGroup
-        transitionName="zoom"
-        transitionEnterTimeout={400}        
-        transitionLeaveTimeout={400}        
-        transitionAppear={true}        
-        transitionAppearTimeout={400}        
+    <CSSTransition
+        in={true}
+        appear={true}
+        timeout={400}
+        classNames="zoom"   
     >
         <div className="overlay" onClick={props.handleOpenAddPanel}></div>
-    </ReactCSSTransitionGroup>
+    </CSSTransition>
     
 );
 

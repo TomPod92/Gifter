@@ -4,7 +4,6 @@ import AddPanel from "./AddPanel.js";
 import Overlay from "./Overlay.js";
 import './app.scss';
 
-
 class App extends React.Component {
   state = {
     OverlayOpen: false

@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import { startAddItem } from '../actions/listActions.js';
 import './addPanel.scss';
-import './animations.scss';
 import './buttons.scss';
+import './animations.scss';
+
 
 class AddPanel extends React.Component {
     state = {
@@ -49,12 +50,11 @@ class AddPanel extends React.Component {
 
     render() {
         return (
-            <ReactCSSTransitionGroup
-                transitionName="fade"
-                transitionEnterTimeout={400}        
-                transitionLeaveTimeout={400}        
-                transitionAppear={true}        
-                transitionAppearTimeout={400}        
+            <CSSTransition
+                in={true}
+                appear={true}
+                timeout={400}
+                classNames="zoom"   
             >
                 <form className="addPanel" onSubmit={this.handleFormSubmit}>
                     <div className="addPanel__group">
@@ -98,7 +98,7 @@ class AddPanel extends React.Component {
 
                     <button className="button button--inverted">Dodaj</button>
                 </form>
-            </ReactCSSTransitionGroup>
+            </CSSTransition>
         )
     }
 }
