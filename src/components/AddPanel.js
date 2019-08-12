@@ -83,7 +83,7 @@ class AddPanel extends React.Component {
 
                     <div className="addPanel__group">
                         <label htmlFor="price">Cena: </label>
-                        <input type="text" id="price" name="price" value={this.state.price} onChange={this.handleFormChange}/>
+                        <input type="number" id="price" name="price" value={this.state.price} onChange={this.handleFormChange}/>
                     </div>
 
                     <div className="addPanel__group">
