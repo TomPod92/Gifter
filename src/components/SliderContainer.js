@@ -2,14 +2,15 @@ import React from 'react';
 import "slick-carousel/slick/slick.css"; //test
 import "slick-carousel/slick/slick-theme.css"; //test
 import Slider from "react-slick"; //test
-import './slider.scss';
+import SlideItem from './SlideItem.js';
+import './sliderContainer.scss';
 import { connect } from 'react-redux';
 
 
 
 class SliderContainer extends React.Component {
     state = {
-        slidesToShow: 4
+        slidesToShow: 1
     }
 
     updateDimensions = () => {
@@ -34,21 +35,29 @@ class SliderContainer extends React.Component {
 
     render(){
         const gifts = this.props.gifts.filter(current => current.person === this.props.person);
-        console.log(gifts);
+        // console.log(gifts);
+        
         return (
+            
             <div className="sliderWrapper">
+                { (!!gifts.length) && <>
+                <h2 className="sliderWrapper__person">{this.props.person}</h2>
                 <Slider
                     // dots = {true}
                     arrows = {true}
-                    infinite = {true}
+                    infinite = {gifts.length > this.state.slidesToShow}
                     speed = {500}
                     slidesToShow = {this.state.slidesToShow}
                     slidesToScroll = {1}
                 >
-                    <div className="page page--one">1</div>
-                    <div className="page page--two">2</div>
-                    <div className="page page--three">3</div>
+                    {/* <div className="page page--one">1</div> */}
+                    {/* <div className="page page--two">2</div> */}
+                    {/* <div className="page page--three">3</div> */}
+
+                    {gifts.map( current => <SlideItem key={current.name} giftInfo={current} /> )}
                 </Slider>
+                </>}
+                
             </div>
         );
     }

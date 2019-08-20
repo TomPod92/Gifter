@@ -1,6 +1,7 @@
 .sliderWrapper {
     width: 100%;
     position: relative;
+    margin: 8rem 0;
 
     & button {
         position: absolute;
@@ -18,6 +19,15 @@
     & button:nth-of-type(2) {
         right: 3rem;
         z-index: 2;
+    }
+
+    &__person {
+        text-align: center;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--color-white);
+        margin-bottom: 2rem;
     }
 }
 

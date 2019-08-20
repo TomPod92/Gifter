@@ -17,8 +17,8 @@ const Header = (props) => {
         >
             <header className="header">
                 <img className="header__logo" src={logo} alt="Gifter Logo"/>
-                <button className="button" onClick={props.handleOpenAddPanel}>Dodaj prezent</button>
-                <button className="button button--inverted" onClick={props.dispatch(startLogout)}>Wyloguj</button>
+                {/* <button className="button" onClick={props.handleOpenAddPanel}>Dodaj prezent</button>
+                <button className="button button--inverted" onClick={props.dispatch(startLogout)}>Wyloguj</button> */}
             </header>
         </CSSTransition>
     )

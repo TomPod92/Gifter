@@ -3,7 +3,7 @@ import React from "react";
 import Header from "./Header.js";
 import AddPanel from "./AddPanel.js";
 import Overlay from "./Overlay.js";
-import SliderContainer from './Slider.js';
+import SliderContainer from './SliderContainer.js';
 import './app.scss';
 import personList from '../personList.js';
 

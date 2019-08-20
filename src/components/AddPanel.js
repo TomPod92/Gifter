@@ -11,7 +11,6 @@ class AddPanel extends React.Component {
     state = {
         person: 'Tomek',
         name: '',
-        image: '',
         price: '',
         links: '',
         note: ''
@@ -35,7 +34,6 @@ class AddPanel extends React.Component {
         this.setState({
             person: 'Tomek',
             name: '',
-            image: '',
             price: '',
             links: '',
             note: ''           
@@ -74,11 +72,6 @@ class AddPanel extends React.Component {
                     <div className="addPanel__group">
                         <label htmlFor="name">Nazwa: </label>
                         <input type="text" id="name" name="name" value={this.state.name} onChange={this.handleFormChange} required/>
-                    </div>
-                    
-                    <div className="addPanel__group">
-                        <label htmlFor="image">Link do obrazka: </label>
-                        <input type="text" id="image" name="image" value={this.state.image} onChange={this.handleFormChange}/>
                     </div>
 
                     <div className="addPanel__group">
