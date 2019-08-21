@@ -12,7 +12,7 @@ class AddPanel extends React.Component {
         person: 'Tomek',
         name: '',
         price: '',
-        links: '',
+        link: '',
         note: ''
     }
 
@@ -35,7 +35,7 @@ class AddPanel extends React.Component {
             person: 'Tomek',
             name: '',
             price: '',
-            links: '',
+            link: '',
             note: ''           
         })
 
@@ -76,12 +76,12 @@ class AddPanel extends React.Component {
 
                     <div className="addPanel__group">
                         <label htmlFor="price">Cena: </label>
-                        <input type="number" id="price" name="price" value={this.state.price} onChange={this.handleFormChange}/>
+                        <input type="number" id="price" name="price" value={this.state.price} onChange={this.handleFormChange} required/>
                     </div>
 
                     <div className="addPanel__group">
-                        <label htmlFor="links">Linki do sklepów: </label>
-                        <input type="textarea" id="links" name="links" value={this.state.links} onChange={this.handleFormChange} required/>
+                        <label htmlFor="link">Linki do sklepów: </label>
+                        <input type="textarea" id="link" name="link" value={this.state.link} onChange={this.handleFormChange}/>
                     </div>
 
                     <div className="addPanel__group">

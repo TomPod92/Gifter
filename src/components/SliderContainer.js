@@ -18,7 +18,7 @@ class SliderContainer extends React.Component {
             this.setState({slidesToShow: 1})
         } else if(window.innerWidth >= 450 && window.innerWidth <= 800) {
             this.setState({slidesToShow: 2})
-        } else if(window.innerWidth >= 800 && window.innerWidth <= 1200) {
+        } else if(window.innerWidth >= 800) {
             this.setState({slidesToShow: 3})
         }
     }

@@ -7,7 +7,7 @@ export const addItem = (newItem) => ({
         person: newItem.person,
         name: newItem.name,
         price: newItem.price,
-        link: newItem.links,
+        link: newItem.link,
         image: newItem.image,
         note: newItem.note
     }

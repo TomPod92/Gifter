@@ -21,9 +21,9 @@ class App extends React.Component {
         <div className="App">
           {this.state.addPanelOpen && <AddPanel handleOpenAddPanel={this.handleOpenAddPanel}/>}
           {this.state.addPanelOpen && <Overlay  handleOpenAddPanel={this.handleOpenAddPanel}/>}
+          
           <Header handleOpenAddPanel={this.handleOpenAddPanel}/>
           { personList.map( current => (<SliderContainer key={current} person={current}/>)) }
-          {/* <SliderContainer /> */}
         </div>
     );
   }
