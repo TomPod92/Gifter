@@ -27,6 +27,15 @@ export const removeItem = (id) => ({
     payload: id
 });
 
+export const startRemoveItem = (id) => {
+    return (dispatch) => {
+        database.ref(`gifts/${id}`).remove()
+        .then( () => {
+            dispatch(removeItem(id));
+        })
+    }
+}
+
 export const setItems = (gifts) => ({
     type: 'SET_ITEMS',
     payload: gifts
