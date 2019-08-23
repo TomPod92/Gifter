@@ -9,11 +9,12 @@ import './animations.scss';
 
 class AddPanel extends React.Component {
     state = {
-        person: 'Tomek',
+        person: 'Tomasz',
         name: '',
         price: '',
         link: '',
-        note: ''
+        note: '',
+        booked: false
     }
 
     handleFormChange = (event) => {
@@ -58,8 +59,8 @@ class AddPanel extends React.Component {
                     <div className="addPanel__group">
                         <label htmlFor="person">Prezent dla: </label>
                         <select name="person" value={this.state.person} onChange={this.handleFormChange}>
-                            <option value="Tomek">Tomka</option>
-                            <option value="Wiola">Wioli</option>
+                            <option value="Tomasz">Tomka</option>
+                            <option value="Wioletta">Wioli</option>
                             <option value="Dorota">Doroty</option>
                             <option value="Darek">Darka</option>
                             <option value="Przemek">Przemka</option>
@@ -80,7 +81,7 @@ class AddPanel extends React.Component {
                     </div>
 
                     <div className="addPanel__group">
-                        <label htmlFor="link">Linki do sklepów: </label>
+                        <label htmlFor="link">Link do sklepu: </label>
                         <input type="textarea" id="link" name="link" value={this.state.link} onChange={this.handleFormChange}/>
                     </div>
 

@@ -35,10 +35,8 @@ class SliderContainer extends React.Component {
 
     render(){
         const gifts = this.props.gifts.filter(current => current.person === this.props.person);
-        // console.log(gifts);
-        
+
         return (
-            
             <div className="sliderWrapper">
                 { (!!gifts.length) && <>
                 <h2 className="sliderWrapper__person">{this.props.person}</h2>
@@ -54,7 +52,7 @@ class SliderContainer extends React.Component {
                     {/* <div className="page page--two">2</div> */}
                     {/* <div className="page page--three">3</div> */}
 
-                    {gifts.map( current => <SlideItem key={current.name} giftInfo={current} /> )}
+                    {gifts.map( current => <SlideItem key={current.name} giftInfo={current} person={this.props.person}/> )}
                 </Slider>
                 </>}
                 

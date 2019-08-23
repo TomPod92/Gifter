@@ -8,6 +8,12 @@ const listReducer = (state = listReducerDefaultState, action) => {
             return action.payload
         case 'REMOVE_ITEM':
             return state.filter( current => current.id !== action.payload)
+        case 'BOOK_ITEM':
+            return state.map( current => {
+                if(current.id === action.payload.id) {
+                    return {...action.payload}
+                } else return current
+            })
         default:
             return state
     }
