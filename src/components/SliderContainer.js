@@ -1,7 +1,7 @@
 import React from 'react';
-import "slick-carousel/slick/slick.css"; //test
-import "slick-carousel/slick/slick-theme.css"; //test
-import Slider from "react-slick"; //test
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import SlideItem from './SlideItem.js';
 import './sliderContainer.scss';
 import { connect } from 'react-redux';
@@ -48,10 +48,6 @@ class SliderContainer extends React.Component {
                     slidesToShow = {this.state.slidesToShow}
                     slidesToScroll = {1}
                 >
-                    {/* <div className="page page--one">1</div> */}
-                    {/* <div className="page page--two">2</div> */}
-                    {/* <div className="page page--three">3</div> */}
-
                     {gifts.map( current => <SlideItem key={current.name} giftInfo={current} person={this.props.person}/> )}
                 </Slider>
                 </>}

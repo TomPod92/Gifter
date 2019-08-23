@@ -1,5 +1,4 @@
 import React from "react";
-// import { connect } from 'react-redux';
 import Header from "./Header.js";
 import AddPanel from "./AddPanel.js";
 import Overlay from "./Overlay.js";
@@ -27,12 +26,6 @@ class App extends React.Component {
         </div>
     );
   }
-}
-
-// const mapStateToProps = (state) => {
-//   return {
-//     gifts: state.list
-//   }
-// };
+};
 
 export default App;

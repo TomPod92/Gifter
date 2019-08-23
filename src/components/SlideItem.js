@@ -7,13 +7,10 @@ import sprite from '../sprite.svg';
 
 class SlideItem extends React.Component {
 
-    state = {
-        chosen: false,
-    }
-
     setActiveItem = () => {
-        // // check if 
-        // if(this.props.loggedPerson.includes(this.props.person)) return
+        // check if logged in person tries to book his own item
+        // if he is, do not do anything (dont change the class, dont change redux/firebase)
+        if(this.props.loggedPerson.includes(this.props.person)) return
 
         // change current gift item "booked" value to the opposite 
         let updatedItem = this.props.giftInfo;
@@ -21,27 +18,13 @@ class SlideItem extends React.Component {
         
         // update firebase and redux store
         this.props.dispatch(startBookItem(updatedItem));
-
-        this.setState( prevState => ({
-            chosen: !prevState.chosen
-        }))
     }
-
-    check = () => {
-        if(this.props.loggedPerson.includes(this.props.person)) {
-            // ta sama osoba
-            return 'slideItem'
-        } else {
-            // inna osoba
-            return (this.state.chosen ? "slideItem slideItem--active" : "slideItem")
-        }
-    }
-
 
     render() {
         return (
             <div className="slideItemWrapper">
-                <div className={this.state.chosen ? "slideItem slideItem--active" : "slideItem"} onClick={this.setActiveItem}>
+                <div className={ (this.props.loggedPerson && (this.props.giftInfo.booked && !this.props.loggedPerson.includes(this.props.person))) ? "slideItem slideItem--active" : "slideItem"} onClick={this.setActiveItem}>
+
                     <div className="slideItem__info">
                         Nazwa: <span>{this.props.giftInfo.name} </span>
                     </div>
@@ -65,6 +48,7 @@ class SlideItem extends React.Component {
                     <div className="slideItem__button" onClick={() => this.props.dispatch(startRemoveItem(this.props.giftInfo.id))}>
                         <svg><use xlinkHref={`${sprite}#icon-bin`}></use></svg>
                     </div>
+                    
                 </div>
             </div>
         );
