@@ -57,7 +57,7 @@ class AddPanel extends React.Component {
             >
                 <form className="addPanel" onSubmit={this.handleFormSubmit}>
                     <div className="addPanel__group">
-                        <label htmlFor="person">Prezent dla: </label>
+                        <label htmlFor="person">Dodaj prezent dla: </label>
                         <select name="person" value={this.state.person} onChange={this.handleFormChange}>
                             <option value="Tomasz">Tomka</option>
                             <option value="Wioletta">Wioli</option>

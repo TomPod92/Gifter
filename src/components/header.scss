@@ -15,9 +15,51 @@
         &:hover {
             transform: scale(1.05) rotate(-3deg);
         }
+
+        @media (max-width: 700px) {
+            width: 12rem;
+        }
     }
 
     .button:first-of-type {
         margin-right: 2rem;
     }
 }
+// -----------------------------------
+// ------------- MENUS ---------------
+.header__menu--desktop {
+   display: flex;
+
+   @media (max-width: 700px) {
+       display: none;
+   }
+}
+
+.header__menu--mobile {
+    display: none;
+
+    .svg-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 4rem;
+        height: 4rem;
+        padding: 1rem;
+        border-radius: 50%;
+        background-color: var(--color-primary);
+    }
+ 
+    .svg-container:first-child {
+        margin-right: 2rem;
+    }
+
+    svg {
+        fill: var(--color-white);
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (max-width: 700px) {
+        display: flex;
+    }
+ }
