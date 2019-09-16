@@ -9,7 +9,8 @@ export const addItem = newItem => ({
     price: newItem.price,
     link: newItem.link,
     note: newItem.note,
-    booked: false
+    booked: false,
+    bookedBy: ''
   }
 });
 
@@ -65,7 +66,7 @@ export const bookItem = (updatedItem) => ({
 
 export const startBookItem = (updatedItem) => {
     return dispatch => {
-        database.ref(`gifts/${updatedItem.id}`).update({booked: updatedItem.booked})
+        database.ref(`gifts/${updatedItem.id}`).update({booked: updatedItem.booked, bookedBy: updatedItem.bookedBy})
         .then( () => {
             dispatch(bookItem(updatedItem));
         })

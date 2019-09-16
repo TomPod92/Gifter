@@ -1,3 +1,8 @@
+.slideItemWrapper {
+    position: relative;
+    padding: 0 1rem;
+}
+
 .slideItem {
     display: flex;
     flex-direction: column;
@@ -8,6 +13,16 @@
     border-radius: 3px;
     color: var(--color-text-black);
     transition: all 0.5s ease-in-out;
+    
+    &:hover {
+        background: rgba(245, 245, 245, 0.8);
+    }
+
+    &--active {
+        transform: scale(0.8);
+        filter: grayscale(100%);
+        opacity: 0.7;
+    }
 
     &__info {
         color: var(--color-text-black);
@@ -29,26 +44,18 @@
         background-color: var(--color-primary);
         cursor: pointer;
         text-align: center;
+        transition: all 0.5s ease-in-out;
 
         & a {
             color: var(--color-white);
             text-decoration: none;
         }
-    }
 
-    &:hover {
-        background: rgba(245, 245, 245, 0.8);
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 5px 5px 10px rgba(56, 56, 56, 0.6);
+        }
     }
-
-    &--active {
-        transform: scale(0.8);
-        filter: grayscale(100%);
-        opacity: 0.7;
-    }
-}
-
-.slideItemWrapper {
-    padding: 0 1rem;
 }
 
 .slideItem__button {
@@ -73,5 +80,28 @@
         height: 100%;
         fill: var(--color-white);
         text-decoration: none;
+    }
+}
+
+
+.bookedInfo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    width: 60%;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: rgb(194, 35, 35);
+    color: var(--color-white);
+
+    & span {
+        font-size: 1.6rem;
+        color: var(--color-white);
+        font-weight: bold;
+        line-height: 2;
     }
 }

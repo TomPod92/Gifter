@@ -14,7 +14,8 @@ class AddPanel extends React.Component {
         price: '',
         link: '',
         note: '',
-        booked: false
+        booked: false,
+        bookedBy: ''
     }
 
     handleFormChange = (event) => {
@@ -37,7 +38,8 @@ class AddPanel extends React.Component {
             name: '',
             price: '',
             link: '',
-            note: ''           
+            note: '',
+            bookedBy: ''           
         })
 
         // close AddPanel and Overlay after a second
@@ -90,7 +92,10 @@ class AddPanel extends React.Component {
                         <input type="textarea" id="note" name="note" value={this.state.note} onChange={this.handleFormChange}/>
                     </div>
 
-                    <button className="button button--inverted">Dodaj</button>
+                    <div className="addPanel__button-container">
+                        <button type="submit" className="button button--inverted">Dodaj</button>
+                        <button type="button" className="button" onClick={this.props.handleOpenAddPanel}>Zamknij</button>
+                    </div>
                 </form>
             </CSSTransition>
         )

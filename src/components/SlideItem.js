@@ -15,9 +15,26 @@ class SlideItem extends React.Component {
         // change current gift item "booked" value to the opposite 
         let updatedItem = this.props.giftInfo;
         updatedItem.booked = !updatedItem.booked;
-        
+
+        // if item was already booked by someone reset "bookedBy" value
+        if(updatedItem.bookedBy) updatedItem.bookedBy= ''; 
+        // if item was not booked by anyone set "bookedBy" value to currently logged person
+        else updatedItem.bookedBy = this.props.loggedPerson;
+
         // update firebase and redux store
         this.props.dispatch(startBookItem(updatedItem));
+    }
+
+    removeItem = (event, id) => {
+        // prevent "this.setActiveItem" from firing
+        event.stopPropagation();
+
+        // ask the user if he really wants to delete that item
+        const areYouSure = window.confirm('Na pewno chcesz usunąć ten prezent?');
+        if(!areYouSure) return
+      
+        // remove item from firebase
+        this.props.dispatch(startRemoveItem(id))
     }
 
     render() {
@@ -45,11 +62,18 @@ class SlideItem extends React.Component {
                         </div>
                     }
 
-                    <div className="slideItem__button" onClick={() => this.props.dispatch(startRemoveItem(this.props.giftInfo.id))}>
+                    <div className="slideItem__button" onClick={(event) => this.removeItem(event, this.props.giftInfo.id)}>
                         <svg><use xlinkHref={`${sprite}#icon-bin`}></use></svg>
-                    </div>
-                    
+                    </div>              
                 </div>
+
+                {(this.props.loggedPerson && (this.props.giftInfo.booked && !this.props.loggedPerson.includes(this.props.person)))  &&
+                    <div className="bookedInfo">
+                        Zarezerwowane przez: <br/>
+                        <span>{this.props.giftInfo.bookedBy.split(" ")[0]}</span>
+                    </div>
+                }
+                
             </div>
         );
     }
