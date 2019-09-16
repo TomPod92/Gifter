@@ -3,7 +3,7 @@
 This React project was made to teach me how to work with firebase.
 It was made with **mobile first** approach.
 
-In order to see a demo visit [this link](https://tompod92.github.io/Gifter)
+In order to see a demo visit [this link](https://tompod92.github.io/Gifter/)
 
 ![App](gifter.PNG)
 

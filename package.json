@@ -1,9 +1,11 @@
 {
+  "homepage": "https://tompod92.github.io/Gifter/",
   "name": "gifter",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "firebase": "^6.3.4",
+    "gh-pages": "^2.1.1",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -16,6 +18,8 @@
     "slick-carousel": "^1.8.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
