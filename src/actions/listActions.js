@@ -44,20 +44,39 @@ export const setItems = gifts => ({
   payload: gifts
 });
 
+// export const startSetItems = () => {
+//   return dispatch => {
+//     database.ref("gifts").once("value")
+//     .then(snapshot => {
+//         const gifts = [];
+
+//         snapshot.forEach(current => {
+//             gifts.push({ id: current.key, ...current.val() });
+//         });
+
+//         dispatch(setItems(gifts));
+//     });
+//   };
+// };
+
 export const startSetItems = () => {
   return dispatch => {
-    database.ref("gifts").on("value")
-    .then(snapshot => {
-        const gifts = [];
+    database.ref("gifts").once("value", (snapshot) => {
+      const val = snapshot.val();
+      let gifts = [];
 
-        snapshot.forEach(current => {
-            gifts.push({ id: current.key, ...current.val() });
-        });
+      for (const key in val) {
+        if (val.hasOwnProperty(key)) {
+          const element = val[key];
+          console.log( element)
+          gifts.push(element) 
+        }
+      }
 
-        dispatch(setItems(gifts));
-    });
-  };
-};
+      dispatch(setItems(gifts));
+    }
+  )}
+}
 
 export const bookItem = (updatedItem) => ({
     type: 'BOOK_ITEM',
