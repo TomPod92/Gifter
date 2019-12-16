@@ -7,7 +7,15 @@ import sprite from '../sprite.svg';
 
 class SlideItem extends React.Component {
 
-    setActiveItem = () => {
+    setActiveItem = (event) => {
+
+        // prevent user from unbooking a gift that was booked by someone else
+        if(this.props.loggedPerson !== this.props.giftInfo.bookedBy ) return;
+
+        // prevent booking an item after "a tag" was clicked
+        const clickedElement = event.target.className;
+        if(clickedElement === "slideItem__info slideItem__info--link" || clickedElement === "slideItem__info-aTag") return;
+        
         // check if logged in person tries to book his own item
         // if he is, do not do anything (dont change the class, dont change redux/firebase)
         if(this.props.loggedPerson.includes(this.props.person)) return
@@ -58,7 +66,7 @@ class SlideItem extends React.Component {
 
                     {!!this.props.giftInfo.link && 
                         <div className="slideItem__info slideItem__info--link">
-                            <a href={this.props.giftInfo.link} target="_blank" rel="noopener noreferrer">Zobacz w sklepie</a>
+                            <a href={this.props.giftInfo.link} target="_blank" rel="noopener noreferrer" className="slideItem__info-aTag">Zobacz w sklepie</a>
                         </div>
                     }
 
@@ -68,7 +76,7 @@ class SlideItem extends React.Component {
                 </div>
 
                 {(this.props.loggedPerson && (this.props.giftInfo.booked && !this.props.loggedPerson.includes(this.props.person)))  &&
-                    <div className="bookedInfo">
+                    <div className="bookedInfo" onClick={this.setActiveItem}>
                         Zarezerwowane przez: <br/>
                         <span>{this.props.giftInfo.bookedBy.split(" ")[0]}</span>
                     </div>
