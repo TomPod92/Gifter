@@ -8,10 +8,10 @@ import sprite from '../sprite.svg';
 class SlideItem extends React.Component {
 
     setActiveItem = (event) => {
-
+        
         // prevent user from unbooking a gift that was booked by someone else
-        if(this.props.loggedPerson !== this.props.giftInfo.bookedBy ) return;
-
+        if(this.props.giftInfo.booked && (this.props.loggedPerson !== this.props.giftInfo.bookedBy) ) return;
+        
         // prevent booking an item after "a tag" was clicked
         const clickedElement = event.target.className;
         if(clickedElement === "slideItem__info slideItem__info--link" || clickedElement === "slideItem__info-aTag") return;
