@@ -46,7 +46,7 @@ export const setItems = gifts => ({
 
 export const startSetItems = () => {
   return dispatch => {
-    database.ref("gifts").once("value")
+    database.ref("gifts").on("value")
     .then(snapshot => {
         const gifts = [];
 
