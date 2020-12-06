@@ -21,13 +21,17 @@
         justify-content: flex-start;
     }
 
+    @media (max-width: 700px) {
+        background: var(--color-white);
+    } 
+
     &__group {
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
     }
 
     label {
@@ -37,6 +41,10 @@
         font-size: 1.7rem;
         letter-spacing: 2px;
         text-transform: uppercase;
+
+        @media (max-width: 700px) {  
+            font-size: 1.3rem;
+        }
     }
 
     label:after {
@@ -52,7 +60,7 @@
 
     input,
     select {
-        padding: 0.5rem 1rem;
+        padding: 0.3rem 0.8rem;
         font-size: 1.5rem;
     }
 
@@ -63,6 +71,10 @@
     &__button-container {
         display: flex;
         justify-content: center;
+    }
+
+    &__button-container button {
+        font-size: 1.5rem;
     }
 
     &__button-container button:first-child {

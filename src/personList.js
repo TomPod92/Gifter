@@ -1,3 +1,3 @@
-const personList = ['Tomasz', 'Wioletta', 'Dorota', 'Darek', 'Przemek', 'Ala', 'Iwa', 'Zygmunt'];
+const personList = ['Tomasz', 'Wioletta', 'Dorota', 'Darek', 'Przemek', 'Alicja', 'Iwa', 'Zygmunt'];
 
 export default personList;

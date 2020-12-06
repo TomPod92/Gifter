@@ -66,7 +66,7 @@ class AddPanel extends React.Component {
                             <option value="Dorota">Doroty</option>
                             <option value="Darek">Darka</option>
                             <option value="Przemek">Przemka</option>
-                            <option value="Ala">Ali</option>
+                            <option value="Alicja">Ali</option>
                             <option value="Iwa">Iwony</option>
                             <option value="Zygmunt">Zygmunta</option>
                         </select>
